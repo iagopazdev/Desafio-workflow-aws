@@ -55,7 +55,8 @@ Quando temos vários serviços (microsserviços), eles precisam conversar entre 
 
     Dica de Ouro: É muito comum usar os dois juntos. O SNS avisa que algo aconteceu e joga a mensagem em várias filas SQS diferentes para cada setor processar no seu tempo.
 
-    <img width="570" height="306" alt="SNS" src="https://github.com/user-attachments/assets/8746be8d-bafb-4b98-a8c8-6bfb2db15bb2" />
+
+  <img width="570" height="306" alt="SNS" src="https://github.com/user-attachments/assets/8746be8d-bafb-4b98-a8c8-6bfb2db15bb2" />
 
 
 ## 🗺️ AWS Step Functions (O Maestro)
@@ -72,9 +73,10 @@ Se você tem uma arquitetura cheia de funções Lambda, filas SQS e containers E
 
     O que é: É um serviço que permite construir workflows (fluxos de trabalho) visuais.
 
-    <img width="568" height="306" alt="stepfun" src="https://github.com/user-attachments/assets/7ff41863-815a-4ec6-ae23-8003cead6c96" />
-
-
-    Na prática: Você cria uma "máquina de estados". Por exemplo: o fluxo começa no Passo A (uma Lambda que valida o cartão). Se der certo, vai para o Passo B (manda pro SQS para faturar). Se der erro, vai para o Passo C (manda um email pelo SNS avisando o cliente).
+     Na prática: Você cria uma "máquina de estados". Por exemplo: o fluxo começa no Passo A (uma Lambda que valida o cartão). Se der certo, vai para o Passo B (manda pro SQS para faturar). Se der erro, vai para o Passo C (manda um email pelo SNS avisando o cliente).
 
     Você vê todo o diagrama visualmente na AWS, sabe exatamente onde o processo travou se der erro, e consegue coordenar aplicações gigantescas de forma previsível e organizada.
+
+    
+  <img width="568" height="306" alt="stepfun" src="https://github.com/user-attachments/assets/bcf04746-b489-434f-bf02-3cf2c77b6092" />
+
