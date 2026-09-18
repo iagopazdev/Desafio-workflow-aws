@@ -17,6 +17,9 @@ O Lambda é o coração do modelo *Serverless* (sem servidor) na AWS. Na prátic
 
     No Mundo Real: A Netflix utiliza funções Serverless massivamente nos bastidores. Quando um estúdio faz o upload de um novo episódio de série, funções Lambda são disparadas automaticamente para verificar o arquivo e iniciar o processo de codificação do vídeo para diferentes resoluções e dispositivos, sem que um servidor fique ligado 24/7 esperando arquivos chegarem.
 
+  <img width="575" height="306" alt="aws lambda" src="https://github.com/user-attachments/assets/237596ab-cb3d-43f0-b64e-34a602a7f79d" />
+
+
 ## 🐳 Orquestração de Containers: Amazon ECS e EKS
 
 Quando o projeto cresce, colocar a aplicação dentro de "Containers" (como o Docker) garante que o código vai rodar igual em qualquer lugar. Mas gerenciar dezenas de containers na mão é caótico. É aí que entram os orquestradores.
@@ -29,6 +32,9 @@ Quando o projeto cresce, colocar a aplicação dentro de "Containers" (como o Do
     Exemplo Prático: Uma loja virtual opera com tráfego normal o ano todo. Na Black Friday, os acessos multiplicam por 100. O EKS percebe o pico de acessos, lê as métricas de CPU e cria automaticamente dezenas de novos containers (cópias idênticas do sistema da loja) para aguentar a carga. Quando a promoção acaba, ele destrói os containers excedentes para economizar recursos.
 
     No Mundo Real: O Nubank e o Uber rodam arquiteturas baseadas em microsserviços usando orquestração pesada (como Kubernetes no EKS). Isso permite que eles atualizem o serviço do PIX ou a lógica do GPS sem precisar desligar o resto do aplicativo, já que cada função do app vive em seu próprio container e todos são gerenciados de forma automatizada pelo orquestrador.
+
+  <img width="563" height="299" alt="EKS" src="https://github.com/user-attachments/assets/04382e82-efba-4452-919a-f33b4d1dc47d" />
+
 
 ## 📬 Comunicação Assíncrona: Amazon SNS e SQS
 
@@ -49,6 +55,9 @@ Quando temos vários serviços (microsserviços), eles precisam conversar entre 
 
     Dica de Ouro: É muito comum usar os dois juntos. O SNS avisa que algo aconteceu e joga a mensagem em várias filas SQS diferentes para cada setor processar no seu tempo.
 
+    <img width="570" height="306" alt="SNS" src="https://github.com/user-attachments/assets/8746be8d-bafb-4b98-a8c8-6bfb2db15bb2" />
+
+
 ## 🗺️ AWS Step Functions (O Maestro)
 
 Se você tem uma arquitetura cheia de funções Lambda, filas SQS e containers ECS rodando, como você acompanha o processo inteiro? O Step Functions resolve isso.
@@ -62,6 +71,9 @@ Se você tem uma arquitetura cheia de funções Lambda, filas SQS e containers E
 Se você tem uma arquitetura cheia de funções Lambda, filas SQS e containers ECS rodando, como você acompanha o processo inteiro? O Step Functions resolve isso.
 
     O que é: É um serviço que permite construir workflows (fluxos de trabalho) visuais.
+
+    <img width="568" height="306" alt="stepfun" src="https://github.com/user-attachments/assets/7ff41863-815a-4ec6-ae23-8003cead6c96" />
+
 
     Na prática: Você cria uma "máquina de estados". Por exemplo: o fluxo começa no Passo A (uma Lambda que valida o cartão). Se der certo, vai para o Passo B (manda pro SQS para faturar). Se der erro, vai para o Passo C (manda um email pelo SNS avisando o cliente).
 
